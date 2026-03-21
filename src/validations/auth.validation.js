@@ -59,5 +59,101 @@ const signInValidator = validate(
     ["body"],
   ),
 );
+const signOutValidator = validate(
+  checkSchema(
+    {
+      refreshToken: {
+        notEmpty: {
+          errorMessage: AUTH_MESSAGES.REFRESH_TOKEN_REQUIRED,
+        },
+      },
+    },
+    ["body"],
+  ),
+);
 
-module.exports = { signUpValidator, signInValidator };
+const refreshTokenValidator = validate(
+  checkSchema(
+    {
+      refreshToken: {
+        notEmpty: {
+          errorMessage: AUTH_MESSAGES.REFRESH_TOKEN_REQUIRED,
+        },
+      },
+    },
+    ["body"],
+  ),
+);
+
+const forgotPasswordValidator = validate(
+  checkSchema(
+    {
+      email: {
+        trim: true,
+        notEmpty: {
+          errorMessage: AUTH_MESSAGES.EMAIL_REQUIRED,
+        },
+        isEmail: {
+          errorMessage: AUTH_MESSAGES.EMAIL_INVALID,
+        },
+        normalizeEmail: true,
+      },
+    },
+    ["body"],
+  ),
+);
+
+const verifyPasswordTokenValidator = validate(
+  checkSchema(
+    {
+      token: {
+        notEmpty: {
+          errorMessage: AUTH_MESSAGES.RESET_PASSWORD_TOKEN_REQUIRED,
+        },
+      },
+    },
+    ["body"],
+  ),
+);
+
+const resetPasswordValidator = validate(
+  checkSchema(
+    {
+      token: {
+        notEmpty: {
+          errorMessage: AUTH_MESSAGES.RESET_PASSWORD_TOKEN_REQUIRED,
+        },
+      },
+      newPassword: {
+        notEmpty: {
+          errorMessage: AUTH_MESSAGES.PASSWORD_REQUIRED,
+        },
+      },
+    },
+    ["body"],
+  ),
+);
+
+const oauthValidator = validate(
+  checkSchema(
+    {
+      providerAccessToken: {
+        notEmpty: {
+          errorMessage: AUTH_MESSAGES.TOKEN_REQUIRED,
+        },
+      },
+    },
+    ["body"],
+  ),
+);
+
+module.exports = {
+  signUpValidator,
+  signInValidator,
+  signOutValidator,
+  refreshTokenValidator,
+  forgotPasswordValidator,
+  verifyPasswordTokenValidator,
+  resetPasswordValidator,
+  oauthValidator,
+};
