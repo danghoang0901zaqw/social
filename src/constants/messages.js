@@ -26,7 +26,33 @@ const AUTH_MESSAGES = {
   VERIFY_RESET_PASSWORD_TOKEN_SUCCESS: "Reset password token is valid",
 };
 
-const USER_MESSAGES = {};
+const USER_MESSAGES = {
+  GET_PROFILE_SUCCESS: "Get profile successfully",
+};
+
+const FRIEND_MESSAGES = {
+  SEND_REQUEST_SUCCESS: "Friend request sent successfully",
+  CANCEL_REQUEST_SUCCESS: "Friend request cancelled successfully",
+  ACCEPT_REQUEST_SUCCESS: "Friend request accepted successfully",
+  REJECT_REQUEST_SUCCESS: "Friend request rejected successfully",
+  UNFRIEND_SUCCESS: "Unfriended successfully",
+  GET_FRIENDS_SUCCESS: "Get friends successfully",
+  GET_REQUESTS_SUCCESS: "Get friend requests successfully",
+  GET_SUGGESTIONS_SUCCESS: "Get friend suggestions successfully",
+  REQUEST_NOT_FOUND: "Friend request not found",
+  ALREADY_FRIENDS: "You are already friends",
+  REQUEST_ALREADY_SENT: "Friend request already sent",
+  CANNOT_ADD_YOURSELF: "You cannot send a friend request to yourself",
+  RECEIVER_ID_REQUIRED: "Receiver ID is required",
+  RECEIVER_ID_INVALID: "Receiver ID must be a string",
+  FRIEND_REQUEST_ID_REQUIRED: "Friend request ID is required",
+  FRIEND_REQUEST_ID_INVALID: "Friend request ID must be a string",
+  FRIEND_ID_REQUIRED: "Friend ID is required",
+  FRIEND_ID_INVALID: "Friend ID must be a string",
+  SEARCH_INVALID: "Search must be a string",
+  NOT_ACCEPT_REQUEST: "You are not authorized to accept this friend request",
+  NOT_REJECT_REQUEST: "You are not authorized to reject this friend request",
+};
 
 const COMMON_MESSAGES = {
   PAGE_INVALID: "Page number is invalid",
@@ -36,5 +62,6 @@ const COMMON_MESSAGES = {
 module.exports = {
   AUTH_MESSAGES,
   USER_MESSAGES,
+  FRIEND_MESSAGES,
   COMMON_MESSAGES,
 };

@@ -10,6 +10,8 @@ const { AUTH_TOKEN_TYPE } = require("../constants/enum");
 const { generateToken, verifyToken } = require("../utils/jwt");
 const { Snowflake } = require("@sapphire/snowflake");
 
+const snowflake = new Snowflake(1n);
+
 class AuthServices {
   getExpiredAtFromToken({ token, tokenSecretKey }) {
     try {
@@ -20,7 +22,6 @@ class AuthServices {
     }
   }
   generateId() {
-    const snowflake = new Snowflake(1n);
     return snowflake.generate().toString();
   }
   async signUp({ firstName, lastName, email, password, ip, userAgent }) {
